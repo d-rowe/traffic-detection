@@ -1,8 +1,10 @@
 {
-  "name": "traffic-react",
+  "name": "traffic-detector",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@cloud-annotations/object-detection": "^0.0.8",
+    "hls.js": "^0.12.4",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0"
