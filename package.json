@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@cloud-annotations/object-detection": "^0.0.8",
+    "@tenso rflow/tfjs": "^1.3.2",
+    "@tensorflow-models/coco-ssd": "^2.0.0",
     "hls.js": "^0.12.4",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
