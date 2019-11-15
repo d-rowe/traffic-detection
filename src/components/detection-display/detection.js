@@ -1,11 +1,16 @@
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
+import matchPoint from "./tracking/matching";
 
+// TODO code split
 const watchObjects = ["car", "bus", "truck", "motorcycle, person"];
 
 const detection = (canvas, video) => {
+  let uid = 0;
+  let registeredVehicles = [];
+  let frame = 0;
+
   const ctx = canvas.getContext("2d");
-  ctx.strokeStyle = "red";
-  ctx.lineWidth = 2;
+  ctx.lineWidth = 1.5;
   const { videoHeight, videoWidth } = video;
   const canvasHeight = ctx.canvas.height;
   const canvasWidth = ctx.canvas.width;
@@ -19,12 +24,18 @@ const detection = (canvas, video) => {
       renderPredictions(predictions);
       requestAnimationFrame(() => {
         detectFrame(model);
+        frame += 1;
       });
     });
   };
 
   const renderPredictions = predictions => {
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    // Remove vehicles registed more than 15 frames old
+    registeredVehicles = registeredVehicles.filter(
+      veh => frame - veh.frame <= 15
+    );
+
     predictions.forEach(prediction => {
       const objectName = prediction.class;
       if (watchObjects.includes(objectName)) {
@@ -37,12 +48,42 @@ const detection = (canvas, video) => {
         // Ignore preditions that are more that 20% the width of the view,
         // these are almost always false predictions
         if (width < videoWidth * 0.2) {
-          ctx.strokeRect(x, y, width, height);
-          ctx.beginPath();
-          ctx.arc(cX, cY, 2, 0, 2 * Math.PI);
-          ctx.stroke();
+          let bbox = [x, y, width, height];
+          let matchIndex = matchPoint([cX, cY], registeredVehicles);
+          if (matchIndex !== -1) {
+            let cUID = registeredVehicles[matchIndex].uid;
+            registeredVehicles[matchIndex] = {
+              uid: cUID,
+              frame,
+              bbox,
+              centroid: [cX, cY]
+            };
+          } else {
+            console.log("push vehicle");
+            registeredVehicles.push({
+              uid,
+              frame,
+              bbox,
+              centroid: [x, y]
+            });
+          }
         }
       }
+    });
+
+    // draw registeredVehicles bboxes
+    registeredVehicles.forEach(veh => {
+      if (veh.frame === frame) {
+        ctx.strokeStyle = "green";
+      } else {
+        ctx.strokeStyle = "yellow";
+      }
+      const { bbox } = veh;
+      ctx.strokeRect(...bbox);
+      // const [cX, cY] = veh.centroid;
+      // ctx.beginPath();
+      // ctx.arc(cX, cY, 2, 0, 2 * Math.PI);
+      // ctx.stroke();
     });
   };
 };
