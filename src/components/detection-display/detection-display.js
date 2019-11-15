@@ -6,7 +6,6 @@ import "./style.css";
 const DetectionDisplay = ({ url, width, height }) => {
   const canvasRef = useRef(null);
 
-  const onReady = () => console.log("ready");
   const onStart = () =>
     detection(
       document.getElementById("detection-canvas"),
@@ -23,7 +22,6 @@ const DetectionDisplay = ({ url, width, height }) => {
         url={url}
         width={width}
         height={height}
-        onReady={onReady}
         onStart={onStart}
       />
       <canvas

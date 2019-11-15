@@ -6,8 +6,8 @@ const watchObjects = ["car", "bus", "truck", "motorcycle, person"];
 
 const detection = (canvas, video) => {
   let uid = 0;
-  let registeredVehicles = [];
   let frame = 0;
+  let registeredVehicles = [];
 
   const ctx = canvas.getContext("2d");
   ctx.lineWidth = 1.5;
@@ -51,21 +51,26 @@ const detection = (canvas, video) => {
           let bbox = [x, y, width, height];
           let matchIndex = matchPoint([cX, cY], registeredVehicles);
           if (matchIndex !== -1) {
-            let cUID = registeredVehicles[matchIndex].uid;
+            let currentRegVeh = registeredVehicles[matchIndex];
+            let history = currentRegVeh.history;
+            history.push([cX, cY]);
+            let cUID = currentRegVeh.uid;
             registeredVehicles[matchIndex] = {
               uid: cUID,
               frame,
               bbox,
-              centroid: [cX, cY]
+              centroid: [cX, cY],
+              history
             };
           } else {
-            console.log("push vehicle");
             registeredVehicles.push({
               uid,
               frame,
               bbox,
-              centroid: [x, y]
+              centroid: [x, y],
+              history: [[x, y]]
             });
+            uid += 1;
           }
         }
       }
@@ -74,16 +79,28 @@ const detection = (canvas, video) => {
     // draw registeredVehicles bboxes
     registeredVehicles.forEach(veh => {
       if (veh.frame === frame) {
-        ctx.strokeStyle = "green";
+        ctx.strokeStyle = "#fc9403";
       } else {
-        ctx.strokeStyle = "yellow";
+        ctx.strokeStyle = "#fcc603";
       }
       const { bbox } = veh;
       ctx.strokeRect(...bbox);
-      // const [cX, cY] = veh.centroid;
-      // ctx.beginPath();
-      // ctx.arc(cX, cY, 2, 0, 2 * Math.PI);
-      // ctx.stroke();
+      const [cX, cY] = veh.centroid;
+      ctx.beginPath();
+      ctx.arc(cX, cY, 1, 0, 2 * Math.PI);
+      ctx.stroke();
+
+      // console.log(veh.history);
+      veh.history.forEach((point, i) => {
+        if (i > 0) {
+          let lPoint = veh.history[i - 1];
+          ctx.strokeStyle = `rgba(28, 252, 3, ${0.2}`;
+          ctx.beginPath();
+          ctx.moveTo(...point);
+          ctx.lineTo(...lPoint);
+          ctx.stroke();
+        }
+      });
     });
   };
 };
