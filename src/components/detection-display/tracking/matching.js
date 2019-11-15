@@ -3,7 +3,7 @@ import distance from "./distance";
 // TODO match distance is porportional to bounding box size
 const matchPoint = (centroid, registeredVehicles) => {
   let matchDist = 75;
-  let minDistance = { index: 0, dist: 99999 };
+  let minDistance = { index: -1, dist: 99999 };
   registeredVehicles.forEach((veh, i) => {
     let [vX, vY] = veh.vector;
     let [cX, cY] = veh.centroid;

@@ -7,3 +7,18 @@
   position: absolute;
   left: 0;
 }
+
+.start-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  text-align: left;
+  height: 100%;
+}
+
+.detection-background {
+  background-color: black;
+  border-radius: 1em;
+}
