@@ -55,9 +55,7 @@ const detection = (canvas, video) => {
             let history = currentRegVeh.history;
             let prevCentroid = currentRegVeh.centroid;
             let [prevX, prevY] = prevCentroid;
-
             let vector = [cX - prevX, cY - prevY];
-            console.log(vector);
 
             history.push([cX, cY]);
             let cUID = currentRegVeh.uid;
@@ -94,7 +92,6 @@ const detection = (canvas, video) => {
       const { bbox } = veh;
       ctx.strokeRect(...bbox);
 
-      // console.log(veh.history);
       veh.history.forEach((point, i) => {
         if (i > 0) {
           let lPoint = veh.history[i - 1];
