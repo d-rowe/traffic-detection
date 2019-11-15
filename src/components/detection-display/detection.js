@@ -2,7 +2,7 @@ import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import matchPoint from "./tracking/matching";
 
 // TODO code split
-const watchObjects = ["car", "bus", "truck", "motorcycle, person"];
+const watchObjects = ["car", "bus", "truck", "motorcycle"];
 
 const detection = (canvas, video) => {
   let uid = 0;
@@ -25,16 +25,16 @@ const detection = (canvas, video) => {
       requestAnimationFrame(() => {
         detectFrame(model);
         frame += 1;
+        // Remove vehicles registed more than 15 frames old
+        registeredVehicles = registeredVehicles.filter(
+          veh => frame - veh.frame <= 15
+        );
       });
     });
   };
 
   const renderPredictions = predictions => {
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-    // Remove vehicles registed more than 15 frames old
-    registeredVehicles = registeredVehicles.filter(
-      veh => frame - veh.frame <= 15
-    );
 
     predictions.forEach(prediction => {
       const objectName = prediction.class;
@@ -47,12 +47,18 @@ const detection = (canvas, video) => {
 
         // Ignore preditions that are more that 20% the width of the view,
         // these are almost always false predictions
-        if (width < videoWidth * 0.2) {
+        if (width < videoWidth * 0.2 && height > 10) {
           let bbox = [x, y, width, height];
           let matchIndex = matchPoint([cX, cY], registeredVehicles);
           if (matchIndex !== -1) {
             let currentRegVeh = registeredVehicles[matchIndex];
             let history = currentRegVeh.history;
+            let prevCentroid = currentRegVeh.centroid;
+            let [prevX, prevY] = prevCentroid;
+
+            let vector = [cX - prevX, cY - prevY];
+            console.log(vector);
+
             history.push([cX, cY]);
             let cUID = currentRegVeh.uid;
             registeredVehicles[matchIndex] = {
@@ -60,7 +66,8 @@ const detection = (canvas, video) => {
               frame,
               bbox,
               centroid: [cX, cY],
-              history
+              history,
+              vector
             };
           } else {
             registeredVehicles.push({
@@ -68,7 +75,8 @@ const detection = (canvas, video) => {
               frame,
               bbox,
               centroid: [x, y],
-              history: [[x, y]]
+              history: [[x, y]],
+              vector: [0, 0]
             });
             uid += 1;
           }
@@ -85,10 +93,6 @@ const detection = (canvas, video) => {
       }
       const { bbox } = veh;
       ctx.strokeRect(...bbox);
-      const [cX, cY] = veh.centroid;
-      ctx.beginPath();
-      ctx.arc(cX, cY, 1, 0, 2 * Math.PI);
-      ctx.stroke();
 
       // console.log(veh.history);
       veh.history.forEach((point, i) => {

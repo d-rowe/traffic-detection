@@ -3,6 +3,7 @@ import ReactPlayer from "react-player";
 import detection from "./detection";
 import "./style.css";
 
+// TODO use refs
 const DetectionDisplay = ({ url, width, height }) => {
   const canvasRef = useRef(null);
 

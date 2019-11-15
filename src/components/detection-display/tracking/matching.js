@@ -5,7 +5,10 @@ const matchPoint = (centroid, registeredVehicles) => {
   let matchDist = 75;
   let minDistance = { index: 0, dist: 99999 };
   registeredVehicles.forEach((veh, i) => {
-    let dist = distance(centroid, veh.centroid);
+    let [vX, vY] = veh.vector;
+    let [cX, cY] = veh.centroid;
+    let futureCentroid = [cX + vX, cY + vY];
+    let dist = distance(centroid, futureCentroid);
     if (dist < minDistance.dist) {
       minDistance = { index: i, dist };
     }
