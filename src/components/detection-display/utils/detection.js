@@ -1,9 +1,11 @@
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import centroidMatchID from "./match";
 
-// TODO code split
+// TODO split out registeredVehicles logic to another module
+
 const watchObjects = ["car", "bus", "truck", "motorcycle"];
 let registeredVehicles = [];
+let currentVehicleUID = 0;
 let frame = 0;
 
 // Remove vehicles who haven't been updated in n frames
@@ -14,8 +16,6 @@ const removeOldVehicles = ageLimit => {
 };
 
 const detection = (canvas, video) => {
-  let uid = 0;
-
   const ctx = canvas.getContext("2d");
   ctx.lineWidth = 2;
   const { videoHeight, videoWidth } = video;
@@ -78,14 +78,14 @@ const detection = (canvas, video) => {
             };
           } else {
             registeredVehicles.push({
-              uid,
+              uid: currentVehicleUID,
               frame,
               bbox,
               centroid: [x, y],
               centroidHistory: [{ point: [x, y], frame }],
               vector: [0, 0]
             });
-            uid += 1;
+            currentVehicleUID += 1;
           }
         }
       }
@@ -101,10 +101,10 @@ const detection = (canvas, video) => {
       const { bbox } = vehicle;
       ctx.strokeRect(...bbox);
 
-      vehicle.centroidHistory.forEach((entry, i) => {
+      vehicle.centroidHistory.forEach((centroidSnapshot, i) => {
         if (i > 0) {
-          let lastcentroidHistory = vehicle.centroidHistory[i - 1];
-          const age = frame - lastcentroidHistory.frame;
+          let prevCentroidSnapshot = vehicle.centroidHistory[i - 1];
+          const age = frame - prevCentroidSnapshot.frame;
           const maxAge = 25;
           let alpha;
           if (age > maxAge) {
@@ -114,8 +114,8 @@ const detection = (canvas, video) => {
           }
           ctx.strokeStyle = `rgba(0, 255, 68, ${alpha}`;
           ctx.beginPath();
-          ctx.moveTo(...entry.point);
-          ctx.lineTo(...lastcentroidHistory.point);
+          ctx.moveTo(...centroidSnapshot.point);
+          ctx.lineTo(...prevCentroidSnapshot.point);
           ctx.stroke();
         }
       });
