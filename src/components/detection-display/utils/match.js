@@ -1,12 +1,12 @@
 import distance from "./distance";
 
-// TODO match distance is porportional to bounding box size
-const matchPoint = (centroid, registeredVehicles) => {
+// TODO check if centroid is within registeredVehicles bbox
+const centroidMatchID = (centroid, registeredVehicles) => {
   let matchDist = 75;
   let minDistance = { index: -1, dist: 99999 };
-  registeredVehicles.forEach((veh, i) => {
-    let [vX, vY] = veh.vector;
-    let [cX, cY] = veh.centroid;
+  registeredVehicles.forEach((vehicle, i) => {
+    let [vX, vY] = vehicle.vector;
+    let [cX, cY] = vehicle.centroid;
     let futureCentroid = [cX + vX, cY + vY];
     let dist = distance(centroid, futureCentroid);
     if (dist < minDistance.dist) {
@@ -21,4 +21,4 @@ const matchPoint = (centroid, registeredVehicles) => {
   }
 };
 
-export default matchPoint;
+export default centroidMatchID;

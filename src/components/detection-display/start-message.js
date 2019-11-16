@@ -7,8 +7,7 @@ const StartMessage = ({ startCallback }) => (
     <h6>
       This real-time detection will need to download a small {"(<1MB)"} object
       detection model and stream live video. This is not recommended if you are
-      on mobile data. This can also be resource intensive. If your computer or
-      phone is a potato, it may get quite hot.
+      on mobile data. This may be resource intensive for older devices.
     </h6>
 
     <Button

@@ -1,5 +1,5 @@
 import React from "react";
-import DetectionDisplay from "./components/detection-display/detection-display";
+import DetectionDisplay from "./components/detection-display/index";
 import "./App.css";
 
 const App = () => {

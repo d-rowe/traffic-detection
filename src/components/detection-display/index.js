@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import ReactPlayer from "react-player";
-import detection from "./detection";
+import detection from "./utils/detection";
 import { Loader } from "semantic-ui-react";
 import StartMessage from "./start-message";
 import "./style.css";
