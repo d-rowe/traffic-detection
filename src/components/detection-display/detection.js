@@ -57,7 +57,6 @@ const detection = (canvas, video) => {
             let [prevX, prevY] = prevCentroid;
 
             let vector = [cX - prevX, cY - prevY];
-            console.log(vector);
 
             history.push([cX, cY]);
             let cUID = currentRegVeh.uid;

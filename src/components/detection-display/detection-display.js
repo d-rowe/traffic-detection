@@ -5,18 +5,15 @@ import { Loader } from "semantic-ui-react";
 import StartMessage from "./start-message";
 import "./style.css";
 
-// TODO use refs
 const DetectionDisplay = ({ url, width, height }) => {
   const canvasRef = useRef(null);
+  const videoRef = useRef(null);
   const [start, setStart] = useState(false);
   const [playing, setPlaying] = useState(false);
 
   const onStart = () => {
     setPlaying(true);
-    detection(
-      document.getElementById("detection-canvas"),
-      document.getElementById("player-container").firstChild
-    );
+    detection(canvasRef.current, videoRef.current.getInternalPlayer());
   };
 
   return (
@@ -43,6 +40,7 @@ const DetectionDisplay = ({ url, width, height }) => {
             width={width}
             height={height}
             onStart={onStart}
+            ref={videoRef}
           />
         ) : null}
         {/* Object detection overlay */}
