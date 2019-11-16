@@ -1,0 +1,394 @@
+[
+  {
+    "name": "14th Ave S & S Jackson St",
+    "identifier": "14_S_Jackson_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/14_S_Jackson_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/14_S_Jackson_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "15th Ave NW & NW 85th St",
+    "identifier": "15_NW_85_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/15_NW_85_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/15_NW_85_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "15th Ave NW & NW Leary Way",
+    "identifier": "15_NW_Leary_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/15_NW_Leary_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/15_NW_Leary_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "15th Ave NW & NW Market St EW",
+    "identifier": "15_NW_Market_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/15_NW_Market_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/15_NW_Market_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "15th Ave W & W Dravus St",
+    "identifier": "15_W_Dravus_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/15_W_Dravus_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/15_W_Dravus_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "15th Ave W & W Emerson St",
+    "identifier": "15_W_Emerson_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/15_W_Emerson_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/15_W_Emerson_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "16th Ave E & E Madison St",
+    "identifier": "16_E_Madison_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/16_E_Madison_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/16_E_Madison_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "1st Ave & Madison St",
+    "identifier": "1_Madison_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/1_Madison_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/1_Madison_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "1st Ave & Seneca St",
+    "identifier": "1_Seneca_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/1_Seneca_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/1_Seneca_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "1st Ave & Stewart St",
+    "identifier": "1_Stewart_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/1_Stewart_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/1_Stewart_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "23rd Ave & E Alder St",
+    "identifier": "23_Alder_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/23_Alder_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/23_Alder_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "23rd Ave E & E Cherry St NS",
+    "identifier": "23_E_Cherry_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/23_E_Cherry_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/23_E_Cherry_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "23rd Ave E & E Madison St EW",
+    "identifier": "23_E_Madison_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/23_E_Madison_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/23_E_Madison_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "2nd Ave & Blanchard St",
+    "identifier": "2_Blanchard_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/2_Blanchard_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/2_Blanchard_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "2nd Ave & James St",
+    "identifier": "2_James_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/2_James_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/2_James_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "2nd Ave & Marion St",
+    "identifier": "2_Marion_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/2_Marion_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/2_Marion_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "35th Ave SW @ Fauntleroy Way SW",
+    "identifier": "35_SW_Fauntleroy_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/35_SW_Fauntleroy_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/35_SW_Fauntleroy_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "3rd Ave & Seneca St",
+    "identifier": "3_Seneca_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/3_Seneca_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/3_Seneca_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "3rd Ave & Yesler Way",
+    "identifier": "3_Yesler_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/3_Yesler_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/3_Yesler_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "41st Ave SW & SW Admiral Way",
+    "identifier": "41_SW_Admiral_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/41_SW_Admiral_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/41_SW_Admiral_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "42nd Ave SW & SW Alaska St",
+    "identifier": "42_SW_Alaska_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/42_SW_Alaska_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/42_SW_Alaska_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "4th Ave & Battery St",
+    "identifier": "4_Battery_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/4_Battery_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/4_Battery_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "4th Ave & Cherry St EW",
+    "identifier": "4_Cherry_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/4_Cherry_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/4_Cherry_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "4th Ave & Cherry St NS",
+    "identifier": "4_Cherry_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/4_Cherry_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/4_Cherry_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "5th Ave & James St",
+    "identifier": "5_James_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/5_James_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/5_James_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "5th Ave & Marion St",
+    "identifier": "5_Marion_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/5_Marion_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/5_Marion_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "5th Ave & Mercer St EW",
+    "identifier": "5_Mercer_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/5_Mercer_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/5_Mercer_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "5th Ave & Pine St EW",
+    "identifier": "5_Pine_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/5_Pine_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/5_Pine_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "5th Ave & Pine St NS",
+    "identifier": "5_Pine_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/5_Pine_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/5_Pine_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "6th Ave & Lenora St",
+    "identifier": "6_Lenora_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/6_Lenora_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/6_Lenora_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "7th Ave & Virginia St",
+    "identifier": "7_Virginia_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/7_Virginia_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/7_Virginia_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "8th Ave & Howell St",
+    "identifier": "8_Howell_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/8_Howell_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/8_Howell_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "9th Ave & Pine St",
+    "identifier": "9_Pine_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/9_Pine_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/9_Pine_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "9th Ave N & Mercer St",
+    "identifier": "9_N_Mercer_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/9_N_Mercer_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/9_N_Mercer_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "Alaskan Way & Madison St",
+    "identifier": "Alaskan_Madison_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/Alaskan_Madison_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Alaskan_Madison_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "Alaskan Way & Pike St",
+    "identifier": "Alaskan_Pike_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/Alaskan_Pike_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Alaskan_Pike_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "Alaskan Way & Yesler Way",
+    "identifier": "Alaskan_Yesler_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/Alaskan_Yesler_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Alaskan_Yesler_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "Broadway & E Pike St",
+    "identifier": "Broadway_E_Pike_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/Broadway_E_Pike_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Broadway_E_Pike_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "Broadway & E Roy St",
+    "identifier": "Broadway_E_Roy_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/Broadway_E_Roy_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Broadway_E_Roy_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "California Ave SW & SW Alaska St",
+    "identifier": "California_SW_Alaska_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/California_SW_Alaska_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/California_SW_Alaska_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "California Ave SW & SW Hanford St",
+    "identifier": "California_SW_Hanford_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/California_SW_Hanford_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/California_SW_Hanford_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "Chelan Ave SW & W Marginal Way",
+    "identifier": "Chelan_SW_WMarg_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/Chelan_SW_WMarg_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Chelan_SW_WMarg_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "Denny Way & Yale St / Stewart St",
+    "identifier": "Stewart_Denny_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/Stewart_Denny_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Stewart_Denny_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "Eastlake Ave E & E Stewart St",
+    "identifier": "Eastlake_E_Stewart_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/Eastlake_E_Stewart_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Eastlake_E_Stewart_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "Elliott Ave & Broad St",
+    "identifier": "Elliott_Broad_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/Elliott_Broad_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Elliott_Broad_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "Elliott Ave W & W Mercer Pl",
+    "identifier": "Elliott_W_Mercer_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/Elliott_W_Mercer_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Elliott_W_Mercer_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "Evanston Ave N & N 36th St",
+    "identifier": "Evanston_N_36_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/Evanston_N_36_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Evanston_N_36_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "Fauntleroy Way SW & SW Alaska St",
+    "identifier": "Fauntleroy_SW_Alaska_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/Fauntleroy_SW_Alaska_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Fauntleroy_SW_Alaska_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "Fauntleroy Way SW & SW Cloverdale St",
+    "identifier": "Fauntleroy_SW_Cloverdale_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/Fauntleroy_SW_Cloverdale_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Fauntleroy_SW_Cloverdale_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "Leary Way NW & NW 43rd St",
+    "identifier": "Leary_NW_43_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/Leary_NW_43_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Leary_NW_43_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "Queen Anne Ave N & Roy St",
+    "identifier": "QAnne_N_Roy_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/QAnne_N_Roy_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/QAnne_N_Roy_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "W Seattle Bridge Mid-Span",
+    "identifier": "WSB_Midspan_EW",
+    "direction": "EW",
+    "img": "https://www.seattle.gov/trafficcams/images/WSB_Midspan_EW.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/WSB_Midspan_EW.stream/playlist.m3u8"
+  },
+  {
+    "name": "Western Ave & Elliott St",
+    "identifier": "Western_Elliott_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/Western_Elliott_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Western_Elliott_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "Western Ave & Spring St",
+    "identifier": "Western_Spring_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/Western_Spring_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Western_Spring_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "Western Ave & Wall St",
+    "identifier": "Western_Wall_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/Western_Wall_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Western_Wall_NS.stream/playlist.m3u8"
+  },
+  {
+    "name": "Westlake Ave & Denny Way NS",
+    "identifier": "Westlake_Denny_NS",
+    "direction": "NS",
+    "img": "https://www.seattle.gov/trafficcams/images/Westlake_Denny_NS.jpg",
+    "stream": "https://58cc2dce193dd.streamlock.net/live/Westlake_Denny_NS.stream/playlist.m3u8"
+  }
+]

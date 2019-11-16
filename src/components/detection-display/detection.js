@@ -10,7 +10,7 @@ const detection = (canvas, video) => {
   let registeredVehicles = [];
 
   const ctx = canvas.getContext("2d");
-  ctx.lineWidth = 1.5;
+  ctx.lineWidth = 2;
   const { videoHeight, videoWidth } = video;
   const canvasHeight = ctx.canvas.height;
   const canvasWidth = ctx.canvas.width;
@@ -51,21 +51,21 @@ const detection = (canvas, video) => {
           let bbox = [x, y, width, height];
           let matchIndex = matchPoint([cX, cY], registeredVehicles);
           if (matchIndex !== -1) {
-            let currentRegVeh = registeredVehicles[matchIndex];
-            let history = currentRegVeh.history;
-            let prevCentroid = currentRegVeh.centroid;
-            let [prevX, prevY] = prevCentroid;
+            let vehicle = registeredVehicles[matchIndex];
+            let centroidHistory = vehicle.centroidHistory;
+            let prevCentroid = vehicle.centroid;
+            let [pX, pY] = prevCentroid;
 
-            let vector = [cX - prevX, cY - prevY];
+            let vector = [cX - pX, cY - pY];
 
-            history.push([cX, cY]);
-            let cUID = currentRegVeh.uid;
+            centroidHistory.push({ point: [cX, cY], frame });
+            let cUID = vehicle.uid;
             registeredVehicles[matchIndex] = {
               uid: cUID,
               frame,
               bbox,
               centroid: [cX, cY],
-              history,
+              centroidHistory,
               vector
             };
           } else {
@@ -74,7 +74,7 @@ const detection = (canvas, video) => {
               frame,
               bbox,
               centroid: [x, y],
-              history: [[x, y]],
+              centroidHistory: [{ point: [x, y], frame }],
               vector: [0, 0]
             });
             uid += 1;
@@ -84,23 +84,30 @@ const detection = (canvas, video) => {
     });
 
     // draw registeredVehicles bboxes
-    registeredVehicles.forEach(veh => {
-      if (veh.frame === frame) {
+    registeredVehicles.forEach(vehicle => {
+      if (vehicle.frame === frame) {
         ctx.strokeStyle = "#fc9403";
       } else {
         ctx.strokeStyle = "#fcc603";
       }
-      const { bbox } = veh;
+      const { bbox } = vehicle;
       ctx.strokeRect(...bbox);
 
-      // console.log(veh.history);
-      veh.history.forEach((point, i) => {
+      vehicle.centroidHistory.forEach((entry, i) => {
         if (i > 0) {
-          let lPoint = veh.history[i - 1];
-          ctx.strokeStyle = `rgba(28, 252, 3, ${0.2}`;
+          let lastcentroidHistory = vehicle.centroidHistory[i - 1];
+          const age = frame - lastcentroidHistory.frame;
+          const maxAge = 25;
+          let alpha;
+          if (age > maxAge) {
+            alpha = 0;
+          } else {
+            alpha = (maxAge - age) / maxAge;
+          }
+          ctx.strokeStyle = `rgba(0, 255, 68, ${alpha}`;
           ctx.beginPath();
-          ctx.moveTo(...point);
-          ctx.lineTo(...lPoint);
+          ctx.moveTo(...entry.point);
+          ctx.lineTo(...lastcentroidHistory.point);
           ctx.stroke();
         }
       });
