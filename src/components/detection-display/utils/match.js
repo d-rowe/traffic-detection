@@ -15,7 +15,7 @@ const centroidMatchID = (centroid, registeredVehicles) => {
   });
 
   if (minDistance.dist <= matchDist) {
-    return minDistance.index; // return index of registeredVehicle match
+    return minDistance.index;
   } else {
     return -1;
   }

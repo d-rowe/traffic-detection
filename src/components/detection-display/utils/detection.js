@@ -1,11 +1,6 @@
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import centroidMatchID from "./match";
-import {
-  getRegisteredVehicles,
-  registerVehicle,
-  updateVehicle,
-  deregisterOldVehicles
-} from "./vehicles";
+import vehicles from "./vehicles";
 
 // TODO create drawing module
 
@@ -31,7 +26,7 @@ const detection = (canvas, video) => {
         frame += 1;
 
         // Remove vehicles that haven't been updated in the past 15 frames
-        deregisterOldVehicles(frame, 15);
+        vehicles.deregisterOld(frame, 15);
       });
     });
   };
@@ -55,18 +50,18 @@ const detection = (canvas, video) => {
 
           // Check for match in registeredVehicles
           // TODO use vehicle uid instead of index for matchID
-          let matchID = centroidMatchID([cX, cY], getRegisteredVehicles());
+          let matchID = centroidMatchID([cX, cY], vehicles.all());
           if (matchID !== -1) {
-            updateVehicle(matchID, bbox, frame);
+            vehicles.update(matchID, bbox, frame);
           } else {
-            registerVehicle(bbox, frame);
+            vehicles.register(bbox, frame);
           }
         }
       }
     });
 
-    // draw registeredVehicles bboxes
-    getRegisteredVehicles().forEach(vehicle => {
+    // Draw vehicle bboxes
+    vehicles.all().forEach(vehicle => {
       if (vehicle.frame === frame) {
         ctx.strokeStyle = "#fc9403";
       } else {
@@ -75,6 +70,7 @@ const detection = (canvas, video) => {
       const { bbox } = vehicle;
       ctx.strokeRect(...bbox);
 
+      // Draw vehicle trail
       vehicle.centroidHistory.forEach((centroidSnapshot, i) => {
         if (i > 0) {
           let prevCentroidSnapshot = vehicle.centroidHistory[i - 1];
