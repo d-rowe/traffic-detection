@@ -1,19 +1,15 @@
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import centroidMatchID from "./match";
+import {
+  getRegisteredVehicles,
+  registerVehicle,
+  deregisterOldVehicles
+} from "./vehicles";
 
-// TODO split out registeredVehicles logic to another module
+// TODO create drawing module
 
 const watchObjects = ["car", "bus", "truck", "motorcycle"];
-let registeredVehicles = [];
-let currentVehicleUID = 0;
 let frame = 0;
-
-// Remove vehicles who haven't been updated in n frames
-const removeOldVehicles = ageLimit => {
-  registeredVehicles = registeredVehicles.filter(
-    vehicle => frame - vehicle.frame <= ageLimit
-  );
-};
 
 const detection = (canvas, video) => {
   const ctx = canvas.getContext("2d");
@@ -34,7 +30,7 @@ const detection = (canvas, video) => {
         frame += 1;
 
         // Remove vehicles that haven't been updated in the past 15 frames
-        removeOldVehicles(15);
+        deregisterOldVehicles(frame, 15);
       });
     });
   };
@@ -57,9 +53,9 @@ const detection = (canvas, video) => {
           let bbox = [x, y, width, height];
 
           // Check for match in registeredVehicles
-          let matchID = centroidMatchID([cX, cY], registeredVehicles);
+          let matchID = centroidMatchID([cX, cY], getRegisteredVehicles());
           if (matchID !== -1) {
-            let vehicle = registeredVehicles[matchID];
+            let vehicle = getRegisteredVehicles()[matchID];
             let centroidHistory = vehicle.centroidHistory;
             let prevCentroid = vehicle.centroid;
             let [pX, pY] = prevCentroid;
@@ -68,7 +64,7 @@ const detection = (canvas, video) => {
 
             centroidHistory.push({ point: [cX, cY], frame });
             let cUID = vehicle.uid;
-            registeredVehicles[matchID] = {
+            getRegisteredVehicles()[matchID] = {
               uid: cUID,
               frame,
               bbox,
@@ -77,27 +73,20 @@ const detection = (canvas, video) => {
               vector
             };
           } else {
-            registeredVehicles.push({
-              uid: currentVehicleUID,
-              frame,
-              bbox,
-              centroid: [x, y],
-              centroidHistory: [{ point: [x, y], frame }],
-              vector: [0, 0]
-            });
-            currentVehicleUID += 1;
+            registerVehicle(bbox, frame);
           }
         }
       }
     });
 
     // draw registeredVehicles bboxes
-    registeredVehicles.forEach(vehicle => {
+    getRegisteredVehicles().forEach(vehicle => {
       if (vehicle.frame === frame) {
         ctx.strokeStyle = "#fc9403";
       } else {
         ctx.strokeStyle = "#fcc603";
       }
+      // console.log(vehicle);
       const { bbox } = vehicle;
       ctx.strokeRect(...bbox);
 
