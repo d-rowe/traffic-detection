@@ -3,6 +3,7 @@ import centroidMatchID from "./match";
 import {
   getRegisteredVehicles,
   registerVehicle,
+  updateVehicle,
   deregisterOldVehicles
 } from "./vehicles";
 
@@ -53,25 +54,10 @@ const detection = (canvas, video) => {
           let bbox = [x, y, width, height];
 
           // Check for match in registeredVehicles
+          // TODO use vehicle uid instead of index for matchID
           let matchID = centroidMatchID([cX, cY], getRegisteredVehicles());
           if (matchID !== -1) {
-            let vehicle = getRegisteredVehicles()[matchID];
-            let centroidHistory = vehicle.centroidHistory;
-            let prevCentroid = vehicle.centroid;
-            let [pX, pY] = prevCentroid;
-
-            let vector = [cX - pX, cY - pY];
-
-            centroidHistory.push({ point: [cX, cY], frame });
-            let cUID = vehicle.uid;
-            getRegisteredVehicles()[matchID] = {
-              uid: cUID,
-              frame,
-              bbox,
-              centroid: [cX, cY],
-              centroidHistory,
-              vector
-            };
+            updateVehicle(matchID, bbox, frame);
           } else {
             registerVehicle(bbox, frame);
           }
@@ -86,7 +72,6 @@ const detection = (canvas, video) => {
       } else {
         ctx.strokeStyle = "#fcc603";
       }
-      // console.log(vehicle);
       const { bbox } = vehicle;
       ctx.strokeRect(...bbox);
 

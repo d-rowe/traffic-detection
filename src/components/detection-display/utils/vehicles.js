@@ -1,12 +1,21 @@
 let registered = [];
 let uid = 0;
 
-//   uid
-//   frame
-//   bbox
-//   centroid
-//   centroidHistory
-//   vector
+export const updateVehicle = (index, bbox, frame) => {
+  const vehicle = registered[index];
+  const centroid = getCentroid(bbox);
+  const [x, y] = centroid;
+  const prevCentroid = vehicle.centroid;
+  const [pX, pY] = prevCentroid;
+  const vector = [x - pX, y - pY];
+  vehicle.bbox = bbox;
+  vehicle.centroid = centroid;
+  vehicle.vector = vector;
+  vehicle.centroidHistory.push({
+    point: centroid,
+    frame
+  });
+};
 
 export const registerVehicle = (bbox, frame) => {
   const [x, y, width, height] = bbox;
@@ -30,3 +39,8 @@ export const deregisterOldVehicles = (frame, frameLimit) => {
 };
 
 export const getRegisteredVehicles = () => registered;
+
+const getCentroid = bbox => {
+  const [x, y, width, height] = bbox;
+  return [x + width / 2, y + height / 2];
+};
